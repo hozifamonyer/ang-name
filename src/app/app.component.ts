@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { RouterOutlet,RouterLinkWithHref } from '@angular/router';
+import { TodosService } from './services/todos.service';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLinkWithHref],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers:[TodosService]
 })
 export class AppComponent {
-  title = 'ang-name';
+  hello=signal('hozifa');
 }

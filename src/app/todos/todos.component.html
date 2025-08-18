@@ -1,0 +1,18 @@
+@if (todos().length===0) {
+<p>Loding...</p>
+
+}
+<input type="search"
+  id="search-by" name="seachBy" placeholder="search" [(ngModel)]="seachBy">
+
+<ul>
+  @for (todo of todos()|filterTodos : seachBy() ; track todo.id) {
+  <li appHighlightCompletedTodo [isCompleted]="todo.completed">
+    <input id="todo.{{todo.id }}" type="checkbox" [value]="todo.completed"
+      [defaultChecked]="todo.completed" (change)="handleUpdateTodo(todo)">
+    <label>{{todo.title |titlecase }}</label>
+  </li>
+
+  }
+
+</ul>
